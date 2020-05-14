@@ -5,7 +5,27 @@
     <meta name="viewport" keyword="关键词" content="width=device-width, initial-scale=1.0">
     <title>自定义</title>
 </head>
+<style>
+    #app {
+        position: relative;
+        width: 800px;
+        height: 600px;
+        border: solid 2px gray;
+    }
+    #child {
+        position: absolute;
+        top: 50%;
+        /* transform: translateY(-50%); */
+        /* margin-top: -50%; */
+        background-color: blueviolet;
+    }
+</style>
 <body>
-    <div id="app"></div>
+    <div id="root"></div>
+    <!-- <div id="app">
+        <div id="child">
+            <span style="width: 200px;height: 200px;background-color: brown;">这是一段文字</span>
+        </div>
+    </div> -->
 </body>
 </html>
