@@ -61,5 +61,4 @@ if (NpmLifeCycleEvent === "build:report") {
     config.plugins.push(new BundleAnalyzerPlugin())
 }
 
-
 module.exports = config
