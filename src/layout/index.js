@@ -10,6 +10,8 @@ import {
 
 import './index.less'
 import Test from '@/page/Test'
+import MarginDemo from '@/page/alignCenter/marginDemo'
+import TableDemo from '@/page/alignCenter/TableDemo'
 const { Header, Sider, Content } = Layout;
 
 export default class SiderDemo extends React.Component {
@@ -55,7 +57,8 @@ export default class SiderDemo extends React.Component {
               minHeight: 280,
             }}
           >
-           text of before test 
+           <MarginDemo />
+           <TableDemo />
             <Test />
           </Content>
         </Layout>
