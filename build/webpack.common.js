@@ -9,8 +9,10 @@ const HappyPack = require('happypack')
 const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length })
 
 const srcDir = path.resolve(__dirname, '../src')
+console.log(12, path.resolve(srcDir, "utils"))
+
 const devMode = process.env.NODE_ENV === "development"
-console.info(55555, path.resolve(__dirname), devMode)
+console.info(15,"NODE_ENV", process.env.NODE_ENV)
 
 module.exports = {
     entry: {
@@ -37,8 +39,8 @@ module.exports = {
             {
                 test: /\.less$/,
                 use: [
-                    // devMode ? "style-loader" : MiniCssExtractPlugin.loader,
-                    "style-loader",
+                    devMode ? "style-loader" : MiniCssExtractPlugin.loader,
+                    // "style-loader",
                     "css-loader",
                     "postcss-loader",
                     // "less-loader"
@@ -55,8 +57,8 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
-                    // devMode ? "style-loader" : MiniCssExtractPlugin.loader,
-                    "style-loader",
+                    devMode ? "style-loader" : MiniCssExtractPlugin.loader,
+                    // "style-loader",
                     "css-loader",
                     "postcss-loader"
                 ]
@@ -115,11 +117,11 @@ module.exports = {
             title: '5块钱',
         }),
         // new webpack.HotModuleReplacementPlugin(),
-        // new webpack.NamedModulesPlugin(),
-        // new MiniCssExtractPlugin({
-        //     filename: "[name].[chunkhash:8].css",
-        //     chunkFilename: "chunk/[id].[chunkhash:8].css"
-        // }),
+        new webpack.NamedModulesPlugin(),
+        new MiniCssExtractPlugin({
+            filename: "[name].[chunkhash:8].css",
+            chunkFilename: "chunk/[id].[chunkhash:8].css"
+        }),
 
         // 03 开启 happypack的线程池
         new HappyPack({
@@ -133,6 +135,11 @@ module.exports = {
     resolve: {
         alias: {
             "@": srcDir,
+            "@utils": path.resolve(srcDir, "utils"),
+            "@pages": path.resolve(srcDir, "pages"),
+            "@components": path.resolve(srcDir, "components"),
+            "@common": path.resolve(srcDir, "common"),
+            "@assets": path.resolve(srcDir, "assets"),
         }
     }
 }

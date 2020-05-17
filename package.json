@@ -4,7 +4,7 @@
   "description": "从零搭建react项目模板",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --color --inline --progress --config ./build/webpack.dev.js",
+    "start": "set NODE_ENV=development && webpack-dev-server --color --inline --config ./build/webpack.dev.js",
     "build-script": "set NODE_ENV=production && webpack --progress --config ./build/webpack.prod.js",
     "build": "npm run build-script",
     "build:watch": "npm run build-script",
