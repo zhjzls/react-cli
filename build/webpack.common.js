@@ -25,6 +25,7 @@ module.exports = {
         // filename: '[name].bundle.js',
         filename: '[name].[hash:8].js',
         path: path.resolve(__dirname, '../dist'),
+        publicPath: '/',    // 访问资源的前缀
         // chunkFilename: "chunk/[name]"
     },
     module: {
