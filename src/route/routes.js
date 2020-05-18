@@ -8,6 +8,17 @@ import {
 import BaseLayout from '@/layout/BaseLayout'
 
 const routes = [
+    // {
+    //     path: '/',
+    //     redirect: '/welcome',
+    //     layout: <BaseLayout />,
+    // },
+    {
+        path: '/login',
+        // layout: <BaseLayout />,
+        name: '登录',
+        component: () => <h1>先登录吧</h1>
+    },
     {
         path: '/login',
         // layout: <BaseLayout />,
@@ -18,6 +29,7 @@ const routes = [
     {
         path: '/',
         component: BaseLayout,
+
         children: [
             {
                 name: "欢迎页",
@@ -31,6 +43,7 @@ const routes = [
                 path: '/home',
                 icon: <SettingFilled />,
                 layout: <BaseLayout />,
+<<<<<<< HEAD
                 component: React.lazy(() => import('@/pages/Home'))
             },
             {
@@ -59,6 +72,19 @@ const routes = [
         ]
     }
 
+=======
+                component: React.lazy(() => import('@/pages/System/Setting'))
+            },
+            {
+                name: "个人中心",
+                path: "/system/user",
+                icon: <SmileOutlined />,
+                layout: <BaseLayout />,
+                component: React.lazy(() => import('@/pages/System/User'))
+            },
+        ]
+    },
+>>>>>>> 960caa3... layout布局实现（75%）
 
 ]
 
