@@ -1,7 +1,9 @@
 const webpack = require('webpack')
+const path = require('path')
 const merge = require('webpack-merge')
 const portFinder = require('portfinder')
 const commonConfig = require('./webpack.common')
+console.log(6, path.resolve(__dirname, '../dist'))
 const config = merge(commonConfig, {
     mode: "development",
     devServer: {
@@ -10,7 +12,9 @@ const config = merge(commonConfig, {
         hot: true,
         open: true,
         historyApiFallback: true,
-        contentBase: '../dist',
+        publicPath: '/',  // 用于确定应该从哪里提供 bundle
+        // publicPath: '../dist/',
+        contentBase: path.join(__dirname, '../dist'),   // 告诉服务器从哪个目录中提供内容。只有在你想要提供静态文件时才需要。
         compress: true
     },
     plugins: [
