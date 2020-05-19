@@ -21,14 +21,6 @@ const routes = [
         component: () => <h1>先登录吧</h1>
     },
     {
-
-        path: '/login',
-        // layout: <BaseLayout />,
-        exact: true,
-        name: '登录',
-        component: () => <h1>先登录吧</h1>
-    },
-    {
         path: '/',
         component: BaseLayout,
         children: [
